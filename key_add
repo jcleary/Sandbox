@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # To use this on a server, run the following:
-#   source <(curl -s https://raw.githubusercontent.com/jcleary/Sandbox/master/key_add)
+#   bash <(curl -s https://raw.githubusercontent.com/jcleary/Sandbox/master/key_add)
 #
 
 key_adder()
@@ -15,8 +15,8 @@ key_adder()
       'swav:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQClaC/Ioi1zfDoYh3ycGXnW0v4p7qhRXOPUw5ml40Ed5qIVavCwIlXMgkKx8C25nEP2qglxgP1VgMk86Qk+a12gRL4PbA3NMExRL1CtX8b+cF1SWdpo9Ua3DA6/94RBkIyz1qqFzdXg0e8cXAQUfqN4uMItsqkKkhhaF8SnteOVQPBBWONnHcz0q7FlwSyBricVnX4yblXL4ZrOZ1SdCtg0ZJk74ZG7C4vuJKSMM6RKDkprz+Jb/q20YX8O/meDhKjhby+edLQlC1csuzYLgHiHMTZ9XO67C8O6RfUVJOENkiUBzpnvBKkwAPyngGvTBAgHmGAR2G2XYCpaakMJWly9 swdowka@intellicentrics.com'
       'cleary:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3Z4lrmIXe9wWPSukPdXgqPR6FgZKSr/pSTspOC2+z6BfZnd/BpBeCLIzg9EJ2nsPqYBzcB2naN4uXhAqS45h04RFiFNbL+EYRx2Xrdko58MeDfpaTja1KrqV7vf4anFFybteG7OofVOYTDWAOA3TJjmzD/XqRWSUzFROGbMyfD0hB/Bm54eYlL7yr80nKk39Fn0Hu37cvo8WHmRa0Tip7PAZ4kjGFmBdQcyYZvbIyNwvOPObS82Mkxytb4LVKXVse8CM45Q89ckFmzsWAzO5fgI2pYkjj17tqDJcjBJPJOeBwrlbReIa6rc1IekYz0wWE84ZzR7sQxyvBtAucTreT jcleary@intellicentrics.com'
       'hassan:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVD6e09AtA9FZfCZLKKgY5Fv/XUkmdcqSO7vJiOt5VxM/+hBj9MZXj7oaoGPEuzZHxwtNYchz8Y8yXjA9vDDlf0kKtCovMMslJYBRK5juoibYJLoapqSwQUyVKeWpgYlo1CY48sCzPo6AydQR81cSCBxzn+y/pkVQ5AOsdZcn+IT/ZJqukCrGXEa3oAKudNHxOf+QsBtKjW+RR3fBzircUMlnd+sozeJVhOwhAMK8mj/cqk24PyLSrnL6tBXY8Bx06juAdCdXFW+g9FARf0/gSDdmLXo5XZ81ViCFbJM81EXOjU0t0mGqblFhRk6RH3Pc3a4kb+XzeUvdjEC/c4iUn hkhalid@intellicentrics.com'
+      'emba:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDD52M2r9fPQbvl6Ww8oJlfY501/2MUi2aQz4YjgkGqTkrRnHtECYZpA9HCKbVWeTYmUNICOAWy0MDrfLo+1sFZmV7EwOe8QvWv9RhEQ0+ePMj98O+xpg0+z/JdVeWAavVLcE4lh3qa7S8TalQgARx/or4DtqUo/9Cy2cyvpfiLYHPg8bAlMJPRmgOmF9//I4arBIqeUa0ife+jUYzZcuO1LxU6s9M7MrAXXOnahavpfPCVSo4GuQnX2QJAYfXsasRuVmsx3OlMXBSZPjhRHaC+LHzfzzFCdG2NN5dGFMq+xdB8pwLmhDtev3a4ho0qYI0THPXs0IX6wQzPZqnNkVzh embasbm@gmail.com'
   )
-
 
   while [ true ]; do
     line_no=0
@@ -52,12 +52,12 @@ key_adder()
       ssh_key=${i##*:}
       if grep -Fxq "$ssh_key" ~/.ssh/authorized_keys
       then      
-        echo "Removing #name"
+        echo "Removing $name"
         grep -v "$ssh_key" ~/.ssh/authorized_keys > ~/.ssh/authorized_keys.tmp
         cat ~/.ssh/authorized_keys.tmp > ~/.ssh/authorized_keys
         rm ~/.ssh/authorized_keys.tmp
       else
-        echo "Adding #name"
+        echo "Adding $name"
         echo "$ssh_key" >> ~/.ssh/authorized_keys
       fi
     fi
