@@ -33,7 +33,7 @@ key_adder()
      fi
 
      echo "$line_no : $name $installed"
-     ((line_no=+1))
+     ((line_no+=1))
     done
 
     printf '%s\n' "${installed_keys[@]}"
@@ -45,7 +45,7 @@ key_adder()
 
     if [ "$key_no" == "q" ]
     then
-      exit 0
+      exit
     else
       i=${keys[$key_no]}
       name=${i%:*}
