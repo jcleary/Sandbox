@@ -54,15 +54,3 @@ while [ true ]; do
     fi
   fi
 done
-
-
-
-
-
-
-#echo ${keys[$key_no]}
-
-
-
-
-
