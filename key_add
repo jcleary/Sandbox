@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# To use this on a server, run the following:
+#   source <(curl -s https://raw.githubusercontent.com/jcleary/Sandbox/master/key_add)
+#
+
 key_adder()
 {
   echo "################################"
@@ -41,7 +45,7 @@ key_adder()
 
     if [ "$key_no" == "q" ]
     then
-      exit
+      exit 0
     else
       i=${keys[$key_no]}
       name=${i%:*}
